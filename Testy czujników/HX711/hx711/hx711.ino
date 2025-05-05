@@ -25,9 +25,12 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Waga [g]: ");
-  measurement = waga.get_units(10); // bez argumentu do testu dynamicznego
-  Serial.println(measurement, 2);  
+  unsigned long czas_ms = millis();  // czas od uruchomienia [ms]
+  measurement = waga.get_units();  // uśrednianie z 10 próbek
+  Serial.print(czas_ms);
+  Serial.print(",");
+  Serial.println(measurement, 2);
+
  // waga.power_down();
   //delay(100);
   //waga.power_up();
